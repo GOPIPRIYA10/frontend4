@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+            color: blue; /* Text color like in screenshot */
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <input type="text" id="klu">
+    <button onclick="calculate()">=</button>
+    <button onclick="clearDisplay()">Clear</button>
+
+    <!-- Result label -->
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            const expr = document.getElementById('klu').value;
+            const resultDiv = document.getElementById('result');
+
+            try {
+                const result = eval(expr);
+                resultDiv.innerHTML = `<span style="color:black;">Result:</span> <span style="color:blue;">${result}</span>`;
+            } catch {
+                resultDiv.innerHTML = `<span style="color:black;">Result:</span> <span style="color:red;">Error</span>`;
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById('klu').value = '';
+            document.getElementById('result').textContent = '';
+        }
+    </script>
+</body>
+</html>
